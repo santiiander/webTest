@@ -5,23 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lorem Ipsum</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        header {
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
             background-color: #FFD180;
             padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        nav a {
+        .header__logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .header__nav {
+            display: flex;
+            align-items: center;
+        }
+        .header__link {
             color: #000;
             text-decoration: none;
             margin-left: 20px;
         }
+        .header__burger {
+            display: none;
+            cursor: pointer;
+        }
+        .header__burger div {
+            width: 25px;
+            height: 3px;
+            background-color: #000;
+            margin: 4px;
+        }
+
         .hero {
             display: flex;
             justify-content: space-between;
@@ -31,25 +56,20 @@
             background-size: cover;
             background-position: center;
             height: 700px;
-        }
-        .texto-hero {
-            flex: 1;
-        }
-        .texto-hero h1 {
-            font-size: 6em;
-            margin: 0;
             color: white;
         }
-        .texto-hero p {
+        .hero__text {
+            flex: 1;
+        }
+        .hero__title {
+            font-size: 4em;
+            margin: 0;
+        }
+        .hero__subtitle {
             font-size: 1.5em;
             margin-top: 10px;
-            color: white;
         }
-        .imagen-hero {
-            flex: 1;
-            text-align: right;
-        }
-        .boton {
+        .hero__button {
             display: inline-block;
             padding: 10px 20px;
             background-color: #E0F7FA;
@@ -59,28 +79,46 @@
             font-size: 1.2em;
             margin-top: 20px;
         }
+
         .informacion {
             background-color: #FFF;
             padding: 50px;
             text-align: center;
         }
+
         .productos {
             background-color: #E0F7FA;
             padding: 50px;
             text-align: center;
         }
-        .cuadrícula-productos {
+        .productos__grid {
             display: flex;
             justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
             margin-top: 30px;
         }
-        .producto {
+        .productos__item {
             text-align: center;
+            flex: 1 1 200px;
+            max-width: 250px;
+            padding: 10px; 
         }
-        .producto img {
-            width: 200px;
-            height: 200px;
+
+        .productos__img {
+            width: 100%;
+            height: auto;
             object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .productos__button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #FFD180;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
         }
         .reglas {
             padding: 50px 0;
@@ -88,101 +126,147 @@
             overflow: hidden;
             background-image: url("bg-grid.png");
             margin-bottom: 50px;
+            text-align: center;
         }
-        .contenido-reglas {
+        .reglas__content {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             position: relative;
             z-index: 2;
+            flex-wrap: wrap;
         }
-        .texto-reglas {
+        .reglas__text {
             flex: 1;
             padding: 30px;
         }
-        .imagen-reglas {
+        .reglas__img {
             flex: 1;
-            text-align: right;
+            text-align: center;
         }
-        .imagen-reglas img {
+        .reglas__img img {
             max-width: 75%;
             height: auto;
         }
-        footer {
+
+        .footer {
             background-color: #333;
             color: #FFF;
             padding: 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                height: auto;
+            }
+            .hero__title {
+                font-size: 2.5em;
+            }
+            .header__nav {
+                display: none;
+                flex-direction: column;
+                background-color: #FFD180;
+                position: absolute;
+                width: 100%;
+                top: 70px;
+                left: 0;
+                z-index: 1;
+            }
+            .header__nav--active {
+                display: flex;
+            }
+            .header__burger {
+                display: block;
+            }
+            .reglas__content {
+                flex-direction: column; /* Cambiar a disposición vertical */
+                text-align: center;
+            }
+            .reglas__img {
+                margin-top: 20px; /* Añadir margen superior para separar del texto */
+            }
+        }
+        
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">Lorem Ipsum</div>
-        <nav>
-            <a href="#">Dolor</a>
-            <a href="#">Sit</a>
-            <a href="#">Amet</a>
+    <header class="header">
+        <div class="header__logo">Lorem Ipsum</div>
+        <nav class="header__nav">
+            <a href="#" class="header__link">Dolor</a>
+            <a href="#" class="header__link">Sit</a>
+            <a href="#" class="header__link">Amet</a>
         </nav>
+        <div class="header__burger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </header>
 
     <section class="hero">
-        <div class="texto-hero">
-            <h1>Lorem Ipsum</h1>
-            <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
-            <a href="#" class="boton">Dolor</a>
+        <div class="hero__text">
+            <h1 class="hero__title">Lorem Ipsum</h1>
+            <p class="hero__subtitle">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+            <a href="#" class="hero__button">Dolor</a>
         </div>
     </section>
 
     <section class="informacion">
         <h2>¿Qué es Lorem Ipsum?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </section>
 
     <section class="productos">
         <h2>Consectetur Adipiscing</h2>
-        <div class="cuadrícula-productos">
-            <div class="producto">
-                <img src="square.png" alt="Lorem Ipsum">
+        <div class="productos__grid">
+            <div class="productos__item">
+                <img src="square.png" alt="Lorem Ipsum" class="productos__img">
                 <p>Lorem Ipsum</p>
-                <a href="#" class="boton">Dolor</a>
+                <a href="#" class="productos__button">Dolor</a>
             </div>
-            <div class="producto">
-                <img src="amongus.png" alt="Sit Amet">
+            <div class="productos__item">
+                <img src="amongus.png" alt="Sit Amet" class="productos__img">
                 <p>Sit Amet</p>
-                <a href="#" class="boton">Dolor</a>
+                <a href="#" class="productos__button">Dolor</a>
             </div>
-            <div class="producto">
-                <img src="round.png" alt="Consectetur">
+            <div class="productos__item">
+                <img src="round.png" alt="Consectetur" class="productos__img">
                 <p>Consectetur</p>
-                <a href="#" class="boton">Dolor</a>
+                <a href="#" class="productos__button">Dolor</a>
             </div>
         </div>
     </section>
 
     <section class="reglas">
-        <div class="contenido-reglas">
-            <div class="texto-reglas">
+        <div class="reglas__content">
+            <div class="reglas__text">
                 <h2>Unde Omnis Iste</h2>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
             </div>
-            <div class="imagen-reglas">
+            <div class="reglas__img">
                 <img src="photo.jpg" alt="Lorem Ipsum">
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer class="footer">
         <div>Lorem Ipsum</div>
         <div>Dolor Sit</div>
         <div>Amet</div>
         <div>Consectetur</div>
         <div>Adipiscing</div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.header__nav');
+            nav.classList.toggle('header__nav--active');
+        }
+    </script>
 </body>
 </html>
-
-<!-- 
-Use lorems para rellenar el contenido dado que en ruso no entendia y tampoco iba acorde -->
