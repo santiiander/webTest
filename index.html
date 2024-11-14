@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Ipsum</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #FFD180;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: #000;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            height: 700px;
+        }
+        .texto-hero {
+            flex: 1;
+        }
+        .texto-hero h1 {
+            font-size: 6em;
+            margin: 0;
+            color: white;
+        }
+        .texto-hero p {
+            font-size: 1.5em;
+            margin-top: 10px;
+            color: white;
+        }
+        .imagen-hero {
+            flex: 1;
+            text-align: right;
+        }
+        .boton {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #E0F7FA;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        .informacion {
+            background-color: #FFF;
+            padding: 50px;
+            text-align: center;
+        }
+        .productos {
+            background-color: #E0F7FA;
+            padding: 50px;
+            text-align: center;
+        }
+        .cuadrícula-productos {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .producto {
+            text-align: center;
+        }
+        .producto img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .reglas {
+            padding: 50px 0;
+            position: relative;
+            overflow: hidden;
+            background-image: url("bg-grid.png");
+            margin-bottom: 50px;
+        }
+        .contenido-reglas {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .texto-reglas {
+            flex: 1;
+            padding: 30px;
+        }
+        .imagen-reglas {
+            flex: 1;
+            text-align: right;
+        }
+        .imagen-reglas img {
+            max-width: 75%;
+            height: auto;
+        }
+        footer {
+            background-color: #333;
+            color: #FFF;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Lorem Ipsum</div>
+        <nav>
+            <a href="#">Dolor</a>
+            <a href="#">Sit</a>
+            <a href="#">Amet</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="texto-hero">
+            <h1>Lorem Ipsum</h1>
+            <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+            <a href="#" class="boton">Dolor</a>
+        </div>
+    </section>
+
+    <section class="informacion">
+        <h2>¿Qué es Lorem Ipsum?</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </section>
+
+    <section class="productos">
+        <h2>Consectetur Adipiscing</h2>
+        <div class="cuadrícula-productos">
+            <div class="producto">
+                <img src="square.png" alt="Lorem Ipsum">
+                <p>Lorem Ipsum</p>
+                <a href="#" class="boton">Dolor</a>
+            </div>
+            <div class="producto">
+                <img src="amongus.png" alt="Sit Amet">
+                <p>Sit Amet</p>
+                <a href="#" class="boton">Dolor</a>
+            </div>
+            <div class="producto">
+                <img src="round.png" alt="Consectetur">
+                <p>Consectetur</p>
+                <a href="#" class="boton">Dolor</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="reglas">
+        <div class="contenido-reglas">
+            <div class="texto-reglas">
+                <h2>Unde Omnis Iste</h2>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            </div>
+            <div class="imagen-reglas">
+                <img src="photo.jpg" alt="Lorem Ipsum">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>Lorem Ipsum</div>
+        <div>Dolor Sit</div>
+        <div>Amet</div>
+        <div>Consectetur</div>
+        <div>Adipiscing</div>
+    </footer>
+</body>
+</html>
+
+<!-- 
+Use lorems para rellenar el contenido dado que en ruso no entendia y tampoco iba acorde -->
